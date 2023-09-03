@@ -8,10 +8,13 @@ class ClassComp extends React.Component {
       count: 0,
       age:'',
     };
+    this.onAge=this.onAge.bind(this)
+    this.onPlus = this.onPlus.bind(this);
+
 
   }
 
-  onPlus = () => {
+  onPlus(){
     this.setState({
       count: this.state.count + 1,
     });
@@ -26,7 +29,7 @@ class ClassComp extends React.Component {
       count: 0,
     });
   };
-  onAge=(e)=>{
+  onAge(e){
      this.setState({
         age:e.target.value,
     
