@@ -6,7 +6,9 @@ class ClassComp extends React.Component {
     super(props);
     this.state = {
       count: 0,
+      age:'',
     };
+
   }
 
   onPlus = () => {
@@ -24,6 +26,12 @@ class ClassComp extends React.Component {
       count: 0,
     });
   };
+  onAge=(e)=>{
+     this.setState({
+        age:e.target.value,
+    
+     })
+  }
 
   render() {
     const { firstName, secondName, link } = this.props;
@@ -45,6 +53,12 @@ class ClassComp extends React.Component {
               Reset
             </button>
             <p className="mt-3">{this.state.count}</p>
+              <form >
+                <p className="mt-3">Mening yoshim {this.state.age} da</p>
+                <input onChange={this.onAge} type="text" className="form-control" placeholder="Yoshingizni kiriting..." />
+
+                
+              </form>
           </div>
         </div>
       </div>
