@@ -22,7 +22,12 @@ class App extends Component{
     
   }
   onDelete=(id)=>{
-    console.log(id);
+   this.setState(({data})=>({
+      data:data.filter(movie=>movie.id!==id)
+
+     
+   }))
+    
   };
   render(){
     const{data}=this.state
