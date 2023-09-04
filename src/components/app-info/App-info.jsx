@@ -3,7 +3,7 @@ import React from 'react'
 const AppInfo = () => {
   return (
     <div className="App-info">
-      <p className="fs-3 text-uppercase"> Barcha kinolar son : </p>
+      <p className="fs-3 text-uppercase"> Barcha kinolar soni : </p>
       <p className="fs-4 text-uppercase"> korilgan kinolar soni : </p>
     </div>
   );

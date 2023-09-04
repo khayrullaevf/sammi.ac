@@ -7,6 +7,7 @@ import AppFilter from "../app-filter/App-filter";
 import SearchPannel from "../search-pannel/Search-pannel";
 import MovieList from "../movie-list/movie-list";
 import MoveiesAddForm from "../movies-add-form/movies-add-form";
+import { v4 as uuidv4 } from "uuid";
 class App extends Component{
   constructor(props){
     super(props)
@@ -29,6 +30,17 @@ class App extends Component{
    }))
     
   };
+
+  addForm=(Event,item)=>{
+    Event.preventDefault()
+  
+     this.setState(({data})=>({
+       data: [...data, { ...item, id: uuidv4() }],
+     }))
+  };
+
+
+
   render(){
     const{data}=this.state
       return (
@@ -40,7 +52,7 @@ class App extends Component{
             <SearchPannel />
             <AppFilter />
           </div>
-          <MovieList data={data} onDelete={this.onDelete} />
+          <MovieList data={data} onDelete={this.onDelete} addForm={this.addForm} />
           <MoveiesAddForm />
         </div>
       </div>

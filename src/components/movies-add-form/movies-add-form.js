@@ -10,25 +10,26 @@ class MoveiesAddForm extends Component {
     };
   }
 
-  onChanged = (e) => {
-     this.setState({
-      [e.target.name]:e.target.value,
-     })
-  };
+  // onChanged = (e) => {
+  //    this.setState({
+  //     [e.target.name]:e.target.value,
+  //    })
+  // };
 
   render() {
-    const{name,viewers}=this.state
+    const{name,viewers}=this.state;
+    const{addForm}=this.props;
     return (
       <div className="movies-add-form">
         <h3>Yangi kino qo'shish</h3>
-        <form className="add-form d-flex">
+        <form className="add-form d-flex" onSubmit={e=>addForm(e,{name,viewers})}>
           <input
             type="text"
             className="form-control new-post-label"
             placeholder="Qanday kino?"
             onChange={this.onChanged}
             name="name"
-            value={name}
+          
           />
           <input
             type="number"
@@ -36,7 +37,7 @@ class MoveiesAddForm extends Component {
             placeholder="Nechi marotaba ko'rilgan?"
             onChange={this.onChanged}
             name="viewers"
-            value={viewers}
+        
           />
           <button type="submit" className="btn btn-outline-dark">
             Qo'shish
